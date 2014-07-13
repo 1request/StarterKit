@@ -10,6 +10,7 @@
 
 @interface SecondViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UIImageView *imageView;
 
 @end
 

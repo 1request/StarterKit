@@ -207,7 +207,8 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
 
 - (void)notifyWhenImmediate:(CLBeacon *)beacon
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Immediate" object:nil];
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:beacon forKey:@"zone"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Immediate" object:nil userInfo:dict];
     
     if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
         [self prepareWebView];
