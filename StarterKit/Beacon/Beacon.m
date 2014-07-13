@@ -8,24 +8,12 @@
 
 #import "Beacon.h"
 
-static NSString * const mobileAddress = @"http://www.homesmartly.com";
-static NSString * const apiAddress = @"http://api.homesmartly.com";
-static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
-
-#define kGetBeacons @"/api/mobile_apps"
-#define kPostToken @"/api/push_tokens"
-
-#define kRequestActivity @"/api/logs"
-#define kRequestMember @"/api/members"
-
 @implementation Beacon
 
 #pragma mark - Beacon
 
-- (void)getBeacons
+- (void)getBeacons:(NSString *)address
 {
-    NSString *address = [NSString stringWithFormat:@"%@%@/%@", apiAddress, kGetBeacons, appKey];
-    
     NSURL *url = [NSURL URLWithString:address];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url

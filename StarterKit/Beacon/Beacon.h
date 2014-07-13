@@ -23,6 +23,6 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, assign) id<BeaconNotificationDelegate> delegate;
 
-- (void)getBeacons;
+- (void)getBeacons:(NSString *)address;
 
 @end

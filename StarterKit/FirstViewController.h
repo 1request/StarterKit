@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface FirstViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 
 @end
 
