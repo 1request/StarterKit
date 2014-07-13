@@ -49,6 +49,13 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
     
     [self clearNotifications];
     
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"ActivateWebView" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self activateWebView];
+    }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"DeactivateWebView" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self deactivateWebView];
+    }];
+    
     return YES;
 }
 
@@ -159,7 +166,7 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
     }
 }
 
-- (void)activeWebView
+- (void)activateWebView
 {
     showWebView = YES;
 }
