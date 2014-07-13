@@ -14,6 +14,10 @@
 		D1D7F52C19733BEC006DA36B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1D7F52A19733BEC006DA36B /* Main.storyboard */; };
 		D1D7F52E19733BEC006DA36B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1D7F52D19733BEC006DA36B /* Images.xcassets */; };
 		D1D7F53A19733BEC006DA36B /* StarterKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D7F53919733BEC006DA36B /* StarterKitTests.m */; };
+		D1D7F54A19734139006DA36B /* Beacon.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D7F54519734139006DA36B /* Beacon.m */; };
+		D1D7F54B19734139006DA36B /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = D1D7F54719734139006DA36B /* close.png */; };
+		D1D7F54C19734139006DA36B /* icong-120.png in Resources */ = {isa = PBXBuildFile; fileRef = D1D7F54819734139006DA36B /* icong-120.png */; };
+		D1D7F54D19734139006DA36B /* redbear.png in Resources */ = {isa = PBXBuildFile; fileRef = D1D7F54919734139006DA36B /* redbear.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +45,11 @@
 		D1D7F53319733BEC006DA36B /* StarterKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarterKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D7F53819733BEC006DA36B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1D7F53919733BEC006DA36B /* StarterKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StarterKitTests.m; sourceTree = "<group>"; };
+		D1D7F54419734139006DA36B /* Beacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beacon.h; sourceTree = "<group>"; };
+		D1D7F54519734139006DA36B /* Beacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beacon.m; sourceTree = "<group>"; };
+		D1D7F54719734139006DA36B /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		D1D7F54819734139006DA36B /* icong-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icong-120.png"; sourceTree = "<group>"; };
+		D1D7F54919734139006DA36B /* redbear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redbear.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +91,8 @@
 		D1D7F51C19733BEC006DA36B /* StarterKit */ = {
 			isa = PBXGroup;
 			children = (
+				D1D7F54319734139006DA36B /* Beacon */,
+				D1D7F54619734139006DA36B /* images */,
 				D1D7F52119733BEC006DA36B /* AppDelegate.h */,
 				D1D7F52219733BEC006DA36B /* AppDelegate.m */,
 				D1D7F52419733BEC006DA36B /* FirstViewController.h */,
@@ -119,6 +130,25 @@
 				D1D7F53819733BEC006DA36B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D1D7F54319734139006DA36B /* Beacon */ = {
+			isa = PBXGroup;
+			children = (
+				D1D7F54419734139006DA36B /* Beacon.h */,
+				D1D7F54519734139006DA36B /* Beacon.m */,
+			);
+			path = Beacon;
+			sourceTree = "<group>";
+		};
+		D1D7F54619734139006DA36B /* images */ = {
+			isa = PBXGroup;
+			children = (
+				D1D7F54719734139006DA36B /* close.png */,
+				D1D7F54819734139006DA36B /* icong-120.png */,
+				D1D7F54919734139006DA36B /* redbear.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +231,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1D7F54C19734139006DA36B /* icong-120.png in Resources */,
+				D1D7F54B19734139006DA36B /* close.png in Resources */,
+				D1D7F54D19734139006DA36B /* redbear.png in Resources */,
 				D1D7F52C19733BEC006DA36B /* Main.storyboard in Resources */,
 				D1D7F52E19733BEC006DA36B /* Images.xcassets in Resources */,
 			);
@@ -222,6 +255,7 @@
 			files = (
 				D1D7F52919733BEC006DA36B /* SecondViewController.m in Sources */,
 				D1D7F52319733BEC006DA36B /* AppDelegate.m in Sources */,
+				D1D7F54A19734139006DA36B /* Beacon.m in Sources */,
 				D1D7F52619733BEC006DA36B /* FirstViewController.m in Sources */,
 				D1D7F52019733BEC006DA36B /* main.m in Sources */,
 			);
