@@ -22,7 +22,7 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:@"Immediate" object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSDictionary *dict = [note userInfo];
         CLBeacon *beacon = [dict objectForKey:@"zone"];
-        NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@", @"floorplan", [beacon.proximityUUID UUIDString], [beacon major], [beacon minor]];
+        NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@-%@", @"immediate", @"floorplan", [beacon.proximityUUID UUIDString], [beacon major], [beacon minor]];
         NSString *value = [[NSUserDefaults standardUserDefaults] objectForKey:key];
         
         NSLog(@"area: %@", value);

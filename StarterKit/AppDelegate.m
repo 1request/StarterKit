@@ -185,7 +185,7 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             if (webView.hidden == YES) {
-                NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@", @"enter", [beaconRegion.proximityUUID UUIDString], [beaconRegion major], [beaconRegion minor]];
+                NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@-%@", @"enter", @"url", [beaconRegion.proximityUUID UUIDString], [beaconRegion major], [beaconRegion minor]];
                 [self popWebView:key];
             }
         });
@@ -217,7 +217,7 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             if (webView.hidden == YES) {
-                NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@", @"immediate", [beacon.proximityUUID UUIDString], [beacon major], [beacon minor]];
+                NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@-%@", @"immediate", @"url", [beacon.proximityUUID UUIDString], [beacon major], [beacon minor]];
                 [self popWebView:key];
             }
         });

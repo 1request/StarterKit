@@ -88,16 +88,18 @@
                 
                 NSArray *actions = [object objectForKey:@"actions"];
                 for (NSDictionary *action in actions) {
-                    if ([[action objectForKey:@"action"] isEqualToString:@"floorplan"]) {
-                        NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@", @"floorplan", uuid, major, minor];
-                        NSString *area = [action objectForKey:@"area"];
-                        [defs setObject:area forKey:key];
-                        break;
-                    }
                     NSString *trigger = [action objectForKey:@"trigger"];
+                    NSString *act = [action objectForKey:@"action"];
                     NSString *url = [action objectForKey:@"url"];
-                    NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@", trigger, uuid, major, minor];
-                    [defs setObject:url forKey:key];
+                    NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@-%@", trigger, act, uuid, major, minor];
+
+                    if ([act isEqualToString:@"floorplan"]) {
+                        key = [NSString stringWithFormat:@"%@-%@-%@-%@-%@", @"immediate", act, uuid, major, minor];
+                        [defs setObject:[action objectForKey:@"area"] forKey:key];
+                    } else {
+                        [defs setObject:url forKey:key];
+                    }
+                    
                     NSLog(@"%@ -> %@", key, url);
                 }
             }
