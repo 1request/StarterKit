@@ -195,6 +195,9 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
     
     NSLog(@"detect beacon %@", beaconRegion);
     
+    NSString *key = [NSString stringWithFormat:@"enter-message-%@-%@-%@", [beaconRegion.proximityUUID UUIDString], beaconRegion.major, beaconRegion.minor];
+    [self checkLocalNotificationWithKey:key];
+    
     [AppDelegate sendData:[beaconRegion proximityUUID] major:[beaconRegion major] minor:[beaconRegion minor]];
 }
 
@@ -226,6 +229,13 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
 }
 
 #pragma mark - Local notifications
+- (void)checkLocalNotificationWithKey:(NSString *)key
+{
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:key] != nil) {
+        [self sendLocalNotificationWithMessage:[[NSUserDefaults standardUserDefaults] objectForKey:key]];
+    }
+}
+
 - (void)sendLocalNotificationWithMessage:(NSString*)message
 {
     UILocalNotification *notification = [UILocalNotification new];
@@ -239,12 +249,6 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
     
     if ([notification respondsToSelector:@selector(regionTriggersOnce)]) {
         notification.regionTriggersOnce = YES;
-    }
-    
-    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-        UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
-        UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
-        [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
     }
     
     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
