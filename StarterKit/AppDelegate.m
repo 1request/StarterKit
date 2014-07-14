@@ -219,10 +219,6 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
             if (webView.hidden == YES) {
                 NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@", @"immediate", [beacon.proximityUUID UUIDString], [beacon major], [beacon minor]];
                 [self popWebView:key];
-//                NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@", @"floorplan", [beacon.proximityUUID UUIDString], [beacon major], [beacon minor]];
-//                NSString *value = [[NSUserDefaults standardUserDefaults] objectForKey:key];
-//                NSDictionary *dict = [NSDictionary dictionaryWithObject:value forKey:@"zone"];
-//                [[NSNotificationCenter defaultCenter] postNotificationName:@"Immediate" object:nil userInfo:dict];
             }
         });
     }

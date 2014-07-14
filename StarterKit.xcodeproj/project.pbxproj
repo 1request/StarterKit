@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D11ED63119735ADE00297A5B /* walk.png in Resources */ = {isa = PBXBuildFile; fileRef = D11ED62D19735ADE00297A5B /* walk.png */; };
+		D11ED63219735ADE00297A5B /* walk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D11ED62E19735ADE00297A5B /* walk@2x.png */; };
+		D11ED63319735ADE00297A5B /* ibeacon.png in Resources */ = {isa = PBXBuildFile; fileRef = D11ED62F19735ADE00297A5B /* ibeacon.png */; };
+		D11ED63419735ADE00297A5B /* ibeacon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D11ED63019735ADE00297A5B /* ibeacon@2x.png */; };
 		D1D7F52019733BEC006DA36B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D7F51F19733BEC006DA36B /* main.m */; };
 		D1D7F52319733BEC006DA36B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D7F52219733BEC006DA36B /* AppDelegate.m */; };
 		D1D7F52619733BEC006DA36B /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D7F52519733BEC006DA36B /* FirstViewController.m */; };
@@ -31,6 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D11ED62D19735ADE00297A5B /* walk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk.png; sourceTree = "<group>"; };
+		D11ED62E19735ADE00297A5B /* walk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "walk@2x.png"; sourceTree = "<group>"; };
+		D11ED62F19735ADE00297A5B /* ibeacon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ibeacon.png; sourceTree = "<group>"; };
+		D11ED63019735ADE00297A5B /* ibeacon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ibeacon@2x.png"; sourceTree = "<group>"; };
 		D1D7F51A19733BEC006DA36B /* StarterKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarterKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D7F51E19733BEC006DA36B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1D7F51F19733BEC006DA36B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -144,6 +152,10 @@
 		D1D7F54619734139006DA36B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D11ED62D19735ADE00297A5B /* walk.png */,
+				D11ED62E19735ADE00297A5B /* walk@2x.png */,
+				D11ED62F19735ADE00297A5B /* ibeacon.png */,
+				D11ED63019735ADE00297A5B /* ibeacon@2x.png */,
 				D1D7F54719734139006DA36B /* close.png */,
 				D1D7F54819734139006DA36B /* icong-120.png */,
 				D1D7F54919734139006DA36B /* redbear.png */,
@@ -239,9 +251,13 @@
 			files = (
 				D1D7F54C19734139006DA36B /* icong-120.png in Resources */,
 				D1D7F54B19734139006DA36B /* close.png in Resources */,
+				D11ED63119735ADE00297A5B /* walk.png in Resources */,
 				D1D7F54D19734139006DA36B /* redbear.png in Resources */,
+				D11ED63219735ADE00297A5B /* walk@2x.png in Resources */,
 				D1D7F52C19733BEC006DA36B /* Main.storyboard in Resources */,
+				D11ED63419735ADE00297A5B /* ibeacon@2x.png in Resources */,
 				D1D7F52E19733BEC006DA36B /* Images.xcassets in Resources */,
+				D11ED63319735ADE00297A5B /* ibeacon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +468,7 @@
 				D1D7F53F19733BEC006DA36B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D1D7F54019733BEC006DA36B /* Build configuration list for PBXNativeTarget "StarterKitTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +477,7 @@
 				D1D7F54219733BEC006DA36B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

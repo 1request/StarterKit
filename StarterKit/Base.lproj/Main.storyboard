@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Content-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" sceneMemberID="viewController">
@@ -86,7 +86,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Content" image="ibeacon.png" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="locationLabel" destination="cxB-AT-fvh" id="Glb-tW-gkz"/>
                     </connections>
@@ -95,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="750" y="-293"/>
         </scene>
-        <!--Second-->
+        <!--Floor Plan-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" sceneMemberID="viewController">
@@ -181,7 +181,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Floor Plan" image="walk.png" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="imageView" destination="Ot9-cr-dua" id="QZJ-M2-dC2"/>
                     </connections>
@@ -211,9 +211,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="ibeacon.png" width="30" height="30"/>
         <image name="icong-120.png" width="120" height="120"/>
         <image name="redbear.png" width="68" height="83"/>
-        <image name="second" width="30" height="30"/>
+        <image name="walk.png" width="30" height="30"/>
     </resources>
 </document>
