@@ -22,6 +22,7 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
 @interface AppDelegate () <BeaconNotificationDelegate> {
     UIWebView *webView;
     bool showWebView;
+    NSTimer *timer;
 }
 
 @end
@@ -251,7 +252,17 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
         notification.regionTriggersOnce = YES;
     }
     
-    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    if (timer == nil) {
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        
+        timer = [NSTimer timerWithTimeInterval:60 target:self selector:@selector(turnOnLocal) userInfo:nil repeats:NO];
+    }
+}
+
+- (void)turnOnLocal
+{
+    [timer invalidate];
+    timer = nil;
 }
 
 + (void)sendData:(NSUUID *)beaconId major:(NSNumber *)kMajor minor:(NSNumber *)kMinor
