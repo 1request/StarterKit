@@ -76,6 +76,13 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+    if ([defs objectForKey:@"open_url_when_active"] != nil) {
+        NSString *key = [defs objectForKey:@"open_url_when_active"];
+        [self prepareWebView];
+        [self popWebView:key];
+        [defs removeObjectForKey:@"open_url_when_active"];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -179,6 +186,7 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
 
 - (void)notifyWhenEntryBeacon:(CLBeaconRegion *)beaconRegion
 {
+    NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@-%@", @"enter", @"url", [beaconRegion.proximityUUID UUIDString], [beaconRegion major], [beaconRegion minor]];
     if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
         [self prepareWebView];
         
@@ -186,18 +194,19 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             if (webView.hidden == YES) {
-                NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@-%@", @"enter", @"url", [beaconRegion.proximityUUID UUIDString], [beaconRegion major], [beaconRegion minor]];
                 [self popWebView:key];
             }
         });
+    } else {
+        [[NSUserDefaults standardUserDefaults] setObject:key forKey:@"open_url_when_active"];
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Entry" object:nil];
     
     NSLog(@"detect beacon %@", beaconRegion);
     
-    NSString *key = [NSString stringWithFormat:@"enter-message-%@-%@-%@", [beaconRegion.proximityUUID UUIDString], beaconRegion.major, beaconRegion.minor];
-    [self checkLocalNotificationWithKey:key];
+    NSString *message_key = [NSString stringWithFormat:@"enter-message-%@-%@-%@", [beaconRegion.proximityUUID UUIDString], beaconRegion.major, beaconRegion.minor];
+    [self checkLocalNotificationWithKey:message_key];
     
     [AppDelegate sendData:[beaconRegion proximityUUID] major:[beaconRegion major] minor:[beaconRegion minor]];
 }
@@ -255,7 +264,7 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
     if (timer == nil) {
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         
-        timer = [NSTimer timerWithTimeInterval:60 target:self selector:@selector(turnOnLocal) userInfo:nil repeats:NO];
+        timer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(turnOnLocal) userInfo:nil repeats:NO];
     }
 }
 
