@@ -264,7 +264,7 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
     if (timer == nil) {
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         
-        timer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(turnOnLocal) userInfo:nil repeats:NO];
+        timer = [NSTimer timerWithTimeInterval:60 target:self selector:@selector(turnOnLocal) userInfo:nil repeats:NO];
     }
 }
 
