@@ -158,6 +158,10 @@
     for (CLBeacon *b in beacons) {
         if (b.proximity == CLProximityImmediate) {
             [self.delegate notifyWhenImmediate:b];
+        } else if (b.proximity == CLProximityNear) {
+            [self.delegate notifyWhenNear:b];
+        } else if (b.proximity == CLProximityFar) {
+            [self.delegate notifyWhenFar:b];
         }
     }
 }

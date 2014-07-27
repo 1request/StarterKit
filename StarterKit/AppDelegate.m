@@ -226,14 +226,54 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
     if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
         [self prepareWebView];
         
-        double delayInSeconds = 2.0;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            if (webView.hidden == YES) {
+        if (webView.hidden == YES) {
+            double delayInSeconds = 2.0;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@-%@", @"immediate", @"url", [beacon.proximityUUID UUIDString], [beacon major], [beacon minor]];
                 [self popWebView:key];
-            }
-        });
+            });
+        }
+    }
+    
+}
+
+- (void)notifyWhenNear:(CLBeacon *)beacon
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:beacon forKey:@"zone"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Near" object:nil userInfo:dict];
+    
+    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
+        [self prepareWebView];
+        
+        if (webView.hidden == YES) {
+            double delayInSeconds = 2.0;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@-%@", @"near", @"url", [beacon.proximityUUID UUIDString], [beacon major], [beacon minor]];
+                [self popWebView:key];
+            });
+        }
+    }
+    
+}
+
+- (void)notifyWhenFar:(CLBeacon *)beacon
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:beacon forKey:@"zone"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Far" object:nil userInfo:dict];
+    
+    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
+        [self prepareWebView];
+        
+        if (webView.hidden == YES) {
+            double delayInSeconds = 2.0;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@-%@", @"far", @"url", [beacon.proximityUUID UUIDString], [beacon major], [beacon minor]];
+                [self popWebView:key];
+            });
+        }
     }
     
 }

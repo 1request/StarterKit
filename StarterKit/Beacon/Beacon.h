@@ -15,6 +15,8 @@
 - (void)notifyWhenExitBeacon:(CLBeaconRegion*)beaconRegion;
 
 - (void)notifyWhenImmediate:(CLBeacon *)beacon;
+- (void)notifyWhenNear:(CLBeacon *)beacon;
+- (void)notifyWhenFar:(CLBeacon *)beacon;
 
 @end
 

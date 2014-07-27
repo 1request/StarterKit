@@ -34,6 +34,12 @@
     o3 = [[NSNotificationCenter defaultCenter] addObserverForName:@"Immediate" object:nil queue:nil usingBlock:^(NSNotification *note) {
         self.locationLabel.text = @"Immediate";
     }];
+    o3 = [[NSNotificationCenter defaultCenter] addObserverForName:@"Near" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        self.locationLabel.text = @"Near";
+    }];
+    o3 = [[NSNotificationCenter defaultCenter] addObserverForName:@"Far" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        self.locationLabel.text = @"Far";
+    }];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
