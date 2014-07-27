@@ -222,6 +222,7 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
 {
     NSDictionary *dict = [NSDictionary dictionaryWithObject:beacon forKey:@"zone"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Immediate" object:nil userInfo:dict];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Range" object:nil userInfo:dict];
     
     if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
         [self prepareWebView];
@@ -242,6 +243,7 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
 {
     NSDictionary *dict = [NSDictionary dictionaryWithObject:beacon forKey:@"zone"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Near" object:nil userInfo:dict];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Range" object:nil userInfo:dict];
     
     if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
         [self prepareWebView];
@@ -262,6 +264,7 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
 {
     NSDictionary *dict = [NSDictionary dictionaryWithObject:beacon forKey:@"zone"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Far" object:nil userInfo:dict];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Range" object:nil userInfo:dict];
     
     if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
         [self prepareWebView];

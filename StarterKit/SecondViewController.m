@@ -19,13 +19,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"Immediate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"Range" object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSDictionary *dict = [note userInfo];
         CLBeacon *beacon = [dict objectForKey:@"zone"];
-        NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@-%@", @"immediate", @"floorplan", [beacon.proximityUUID UUIDString], [beacon major], [beacon minor]];
+        NSString *reach;
+        if (beacon.proximity == CLProximityImmediate) {
+            reach = @"immediate";
+        } else if (beacon.proximity == CLProximityNear) {
+            reach = @"near";
+        } else if (beacon.proximity == CLProximityFar) {
+            reach = @"far";
+        }
+        NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@-%@", reach, @"floorplan", [beacon.proximityUUID UUIDString], [beacon major], [beacon minor]];
         NSString *value = [[NSUserDefaults standardUserDefaults] objectForKey:key];
         
-        NSLog(@"area: %@", value);
+        NSLog(@">>> area: %@", value);
         if ([value isEqualToString:@"A"]) {
             [self move:0];
         } else if ([value isEqualToString:@"B"]) {
