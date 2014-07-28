@@ -62,6 +62,7 @@
             [defs removeObjectForKey:key];
         }
         
+        // Beacons
         NSArray *beaconArray = [dictionary objectForKey:@"beacons"];
         int count = 0;
         for (NSDictionary *object in beaconArray) {
@@ -116,6 +117,27 @@
             }
             
             count++;
+        }
+        
+        // Areas
+        NSArray *areaArray = [dictionary objectForKey:@"areas"];
+        for (NSDictionary *object in areaArray) {
+            @try {
+                NSString *position = [object objectForKey:@"position"];
+                NSString *name = [object objectForKey:@"name"];
+                NSString *url = [NSString stringWithFormat:@"http://www.homesmartly.com%@", [object objectForKey:@"url"]];
+                
+                NSString *key = [NSString stringWithFormat:@"area-url-%@", position];
+                [defs setObject:url forKey:key];
+                key = [NSString stringWithFormat:@"area-name-%@", position];
+                [defs setObject:name forKey:key];
+            }
+            @catch (NSException *exception) {
+                NSLog(@"exceptino: %@", exception);
+            }
+            @finally {
+                
+            }
         }
         
         [defs synchronize];

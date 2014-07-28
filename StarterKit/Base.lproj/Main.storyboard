@@ -127,16 +127,22 @@
                                     <rect key="frame" x="30" y="100" width="120" height="120"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rk8-h9-sr8">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rk8-h9-sr8">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="180" y="100" width="120" height="120"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dbX-aa-fqB">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dbX-aa-fqB">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="30" y="270" width="120" height="120"/>
+                                </variation>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6rB-Cn-oTl">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="180" y="270" width="120" height="120"/>
                                 </variation>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zone A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzr-hT-SuA">
@@ -175,10 +181,10 @@
                                     <rect key="frame" x="180" y="241" width="120" height="21"/>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6rB-Cn-oTl">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pHh-Hf-CEQ">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="180" y="270" width="120" height="120"/>
+                                    <rect key="frame" x="30" y="100" width="120" height="120"/>
                                 </variation>
                             </imageView>
                         </subviews>
@@ -193,11 +199,12 @@
                                 <exclude reference="Ot9-cr-dua"/>
                                 <exclude reference="Rk8-h9-sr8"/>
                                 <exclude reference="dbX-aa-fqB"/>
+                                <exclude reference="6rB-Cn-oTl"/>
                                 <exclude reference="Hzr-hT-SuA"/>
                                 <exclude reference="IQ1-Fg-kfJ"/>
                                 <exclude reference="bff-dh-bwu"/>
                                 <exclude reference="VJg-K6-s5P"/>
-                                <exclude reference="6rB-Cn-oTl"/>
+                                <exclude reference="pHh-Hf-CEQ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -205,18 +212,19 @@
                                 <include reference="Ot9-cr-dua"/>
                                 <include reference="Rk8-h9-sr8"/>
                                 <include reference="dbX-aa-fqB"/>
+                                <include reference="6rB-Cn-oTl"/>
                                 <include reference="Hzr-hT-SuA"/>
                                 <include reference="IQ1-Fg-kfJ"/>
                                 <include reference="bff-dh-bwu"/>
                                 <include reference="VJg-K6-s5P"/>
-                                <include reference="6rB-Cn-oTl"/>
+                                <include reference="pHh-Hf-CEQ"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Floor Plan" image="walk.png" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="imageView" destination="Ot9-cr-dua" id="QZJ-M2-dC2"/>
-                        <outlet property="imageViewA" destination="Ot9-cr-dua" id="DyR-5V-K91"/>
+                        <outlet property="imageViewA" destination="pHh-Hf-CEQ" id="L5y-mc-O70"/>
                         <outlet property="imageViewB" destination="Rk8-h9-sr8" id="vkz-aj-wXs"/>
                         <outlet property="imageViewC" destination="dbX-aa-fqB" id="1oz-wE-hh9"/>
                         <outlet property="imageViewD" destination="6rB-Cn-oTl" id="QBU-VS-whH"/>

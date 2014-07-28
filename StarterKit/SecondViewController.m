@@ -19,6 +19,27 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+    
+    self.zoneA.text = [defs objectForKey:@"area-name-A"];
+    self.zoneB.text = [defs objectForKey:@"area-name-B"];
+    self.zoneC.text = [defs objectForKey:@"area-name-C"];
+    self.zoneD.text = [defs objectForKey:@"area-name-D"];
+    
+    NSURL *url = [NSURL URLWithString:@"http://api.homesmartly.com/"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    
+    
+    [request setHTTPMethod:@"GET"];
+
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        self.imageViewA.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[defs objectForKey:@"area-url-A"]]]];
+        self.imageViewB.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[defs objectForKey:@"area-url-B"]]]];
+        self.imageViewC.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[defs objectForKey:@"area-url-C"]]]];
+        self.imageViewD.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[defs objectForKey:@"area-url-D"]]]];
+    }];
+    
     [[NSNotificationCenter defaultCenter] addObserverForName:@"Range" object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSDictionary *dict = [note userInfo];
         CLBeacon *beacon = [dict objectForKey:@"zone"];
@@ -63,18 +84,26 @@
 
 - (void)move:(int)motion
 {
+    self.imageViewA.hidden = YES;
+    self.imageViewB.hidden = YES;
+    self.imageViewC.hidden = YES;
+    self.imageViewD.hidden = YES;
     switch (motion) {
         case 0:
             self.imageView.center = CGPointMake(90, 160);
+            self.imageViewA.hidden = NO;
             break;
         case 1:
             self.imageView.center = CGPointMake(230, 160);
+            self.imageViewB.hidden = NO;
             break;
         case 2:
             self.imageView.center = CGPointMake(90, 330);
+            self.imageViewC.hidden = NO;
             break;
         case 3:
             self.imageView.center = CGPointMake(230, 330);
+            self.imageViewD.hidden = NO;
             break;
             
         default:
