@@ -205,7 +205,7 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
     
     NSLog(@"detect beacon %@", beaconRegion);
     
-    NSString *message_key = [NSString stringWithFormat:@"enter-message-%@-%@-%@", [beaconRegion.proximityUUID UUIDString], beaconRegion.major, beaconRegion.minor];
+    NSString *message_key = [NSString stringWithFormat:@"message-%@-%@-%@", [beaconRegion.proximityUUID UUIDString], beaconRegion.major, beaconRegion.minor];
     [self checkLocalNotificationWithKey:message_key];
     
     [AppDelegate sendData:[beaconRegion proximityUUID] major:[beaconRegion major] minor:[beaconRegion minor]];

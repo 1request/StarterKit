@@ -101,12 +101,10 @@
                         [defs setObject:url forKey:key];
                     }
                     
-                    if ([trigger isEqualToString:@"enter"]) {
-                        key = [NSString stringWithFormat:@"enter-message-%@-%@-%@", uuid, major, minor];
-                        [defs setObject:[action objectForKey:@"message"] forKey:key];
-                    }
+                    key = [NSString stringWithFormat:@"message-%@-%@-%@", uuid, major, minor];
+                    [defs setObject:[action objectForKey:@"message"] forKey:key];
                     
-                    NSLog(@"%@ -> %@", key, url);
+                    NSLog(@"%@ -> %@", key, [action objectForKey:@"message"]);
                 }
             }
             @catch (NSException *exception) {
