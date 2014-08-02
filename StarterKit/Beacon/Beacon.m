@@ -91,14 +91,17 @@
                 for (NSDictionary *action in actions) {
                     NSString *trigger = [action objectForKey:@"trigger"];
                     NSString *act = [action objectForKey:@"action"];
-                    NSString *url = [action objectForKey:@"url"];
                     NSString *key = [NSString stringWithFormat:@"%@-%@-%@-%@-%@", trigger, act, uuid, major, minor];
 
                     if ([act isEqualToString:@"floorplan"]) {
-                        key = [NSString stringWithFormat:@"%@-%@-%@-%@-%@", @"immediate", act, uuid, major, minor];
                         [defs setObject:[action objectForKey:@"area"] forKey:key];
+                    } else if ([act isEqualToString:@"image"]) {
+                        key = [NSString stringWithFormat:@"%@-%@-%@-%@-%@", trigger, @"url", uuid, major, minor];
+                        NSString *imageUrl = [NSString stringWithFormat:@"http://www.homesmartly.com%@", [action objectForKey:@"url"]];
+                        [defs setObject:imageUrl forKey:key];
                     } else {
-                        [defs setObject:url forKey:key];
+                        key = [NSString stringWithFormat:@"%@-%@-%@-%@-%@", trigger, @"url", uuid, major, minor];
+                        [defs setObject:[action objectForKey:@"url"] forKey:key];
                     }
                     
                     key = [NSString stringWithFormat:@"message-%@-%@-%@", uuid, major, minor];
