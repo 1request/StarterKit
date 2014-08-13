@@ -21,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh" object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -52,6 +54,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Refresh Data
+
+- (IBAction)refresh:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Refresh" object:nil];
 }
 
 @end

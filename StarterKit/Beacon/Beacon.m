@@ -28,6 +28,7 @@
     // Start using dictionary
     [self createLocationManager];
     
+#if !(TARGET_IPHONE_SIMULATOR)
     if (![CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]]) {
         NSLog(@"Couldn't turn on region monitoring: Region monitoring is not available for CLBeaconRegion class.");
         return;
@@ -36,6 +37,7 @@
     if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
         [self.locationManager requestAlwaysAuthorization];
     }
+#endif
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (!data) {
@@ -84,8 +86,10 @@
                 beaconRegion.notifyOnEntry = YES;
                 beaconRegion.notifyOnExit = YES;
                 
+#if !(TARGET_IPHONE_SIMULATOR)
                 [self.locationManager startRangingBeaconsInRegion:beaconRegion];
                 [self.locationManager startMonitoringForRegion:beaconRegion];
+#endif
                 
                 NSArray *actions = [object objectForKey:@"actions"];
                 for (NSDictionary *action in actions) {

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="14A314h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
     </dependencies>
     <scenes>
         <!--Content-->
@@ -66,6 +65,19 @@
                                     <rect key="frame" x="20" y="333" width="280" height="68"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDD-Ap-7Bf">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="Refresh">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="117" y="384" width="86" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="refresh:" destination="9pv-A4-QxB" eventType="touchUpInside" id="37V-FW-ZSi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -81,6 +93,7 @@
                                 <exclude reference="Ifr-SD-Qw1"/>
                                 <exclude reference="Ofs-qC-b3V"/>
                                 <exclude reference="cxB-AT-fvh"/>
+                                <exclude reference="RDD-Ap-7Bf"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -91,6 +104,7 @@
                                 <include reference="Ifr-SD-Qw1"/>
                                 <include reference="Ofs-qC-b3V"/>
                                 <include reference="cxB-AT-fvh"/>
+                                <include reference="RDD-Ap-7Bf"/>
                             </mask>
                         </variation>
                     </view>
@@ -101,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-293"/>
+            <point key="canvasLocation" x="690" y="-293"/>
         </scene>
         <!--Floor Plan-->
         <scene sceneID="wg7-f3-ORb">

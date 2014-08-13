@@ -35,9 +35,6 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
     self.beacon = [Beacon new];
     self.beacon.delegate = self;
     
-    // Get data from API
-    [self.beacon getBeacons:[NSString stringWithFormat:@"%@%@/%@", apiAddress, kGetBeacons, appKey]];
-    
     UIApplication *app = [UIApplication sharedApplication];
     if ([app respondsToSelector:@selector(registerForRemoteNotifications)]) {
         UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
@@ -49,6 +46,11 @@ static NSString * const appKey = @"b7e2d9d6cc333ebef267b882";
     }
     
     [self clearNotifications];
+    
+    // Get data from API
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"Refresh" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self.beacon getBeacons:[NSString stringWithFormat:@"%@%@/%@", apiAddress, kGetBeacons, appKey]];
+    }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"ActivateWebView" object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self activateWebView];
