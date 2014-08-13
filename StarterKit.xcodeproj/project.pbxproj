@@ -411,11 +411,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: STAY REAL LIMITED";
 				INFOPLIST_FILE = "Enterprise-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = StarterKit;
+				PROVISIONING_PROFILE = "6b3fc41f-a601-4030-9822-b8cfad741926";
 			};
 			name = Release;
 		};

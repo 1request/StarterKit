@@ -19,6 +19,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"DeactivateWebView" object:nil];
+    
     NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
     
     self.zoneA.text = [defs objectForKey:@"area-name-A"];
@@ -32,7 +38,7 @@
     
     
     [request setHTTPMethod:@"GET"];
-
+    
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         self.imageViewA.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[defs objectForKey:@"area-url-A"]]]];
         self.imageViewB.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[defs objectForKey:@"area-url-B"]]]];
@@ -65,11 +71,6 @@
             [self move:3];
         }
     }];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"DeactivateWebView" object:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
